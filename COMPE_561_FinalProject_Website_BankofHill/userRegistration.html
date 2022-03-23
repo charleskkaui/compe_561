@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign In | Bank of Hill</title>
+    <title>Tell us about yourself.</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,33 +41,108 @@
 
         <div class="container-fluid">
             <div class="row" style="background-color:rebeccapurple;">
-                <h1 style="color: white;">Sign In</h1>
+                <h1 style="color:white;">Application | Bank of Hill</h1>
             </div>
         </div>
 
+        <br>
+
+        <div class="container-fluid" style="background-color: lightgrey;">
+            <form action="/action_page.php">
+                <br>
+                <div class="row">
+                    <div class="col-3">
+                        <input type="text" id="fname" name="fname" value="First Name" recquired><br>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="mname" name="mname" value="Middle Name"><br>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="lname" name="lname" value="Last Name" recquired><br>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Prefix
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mr.</a></li>
+                            <li><a class="dropdown-item" href="#">Mrs.</a></li>
+                            <li><a class="dropdown-item" href="#">Ms.</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="date" id="dob" name="dob" value="Date of Birth MM/DD/YYYY" recquired><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <input type="email" id="email" name="email" value="Email Address" recquired><br>
+                    </div>
+                    <div class="col-6">
+                        <input type="email" id="reemail" name="reemail" value="Re-enter Email Address" recquired><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" id="pphone" name="pphone" value="Phone Number xxx-xxx-xxxx" recquired><br>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Phone Number Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mobile</a></li>
+                            <li><a class="dropdown-item" href="#">Home</a></li>
+                            <li><a class="dropdown-item" href="#">Work</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" id="address1" name="address1" value="Address Line 1" recquired><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" id="address2" name="address2" value="Address Line 2" required><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <input type="text" id="city" name="city" value="City" recquired><br>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" id="state" name="state" value="State" required><br>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" id="zip" name="zip" value="Zip Code" required><br><br>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </form>
+        </div>
+
         <div class="container-fluid">
-            <div class="row">
-                <form action="/action_page.php" class="was-validated">
-                    <div class="mb-3 mt-3">
-                        <label for="uname" class="form-label">Username:</label>
-                        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-                        <label class="form-check-label" for="myCheck">I agree to the terms and conditions.</label>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Check this checkbox to continue.</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="row" style="background-color: lightgrey;">
+                <form action="/action_page.php">
+                    <input type="submit" value="Submit">
                 </form>
+                <br>
             </div>
         </div>
 
@@ -105,7 +180,7 @@
             </div>
         </div>
 
-        <div class="container-fluid" style="background-color: rebeccapurple; ">
+        <div class="container-fluid" style="background-color: rebeccapurple;">
             <div class="row">
                 <div class="col-1">
                 </div>
