@@ -47,20 +47,26 @@
 
         <br>
 
+
+
         <div class="container-fluid" style="background-color: lightgrey;">
             <form action="/action_page.php">
                 <br>
                 <div class="row">
                     <div class="col-3">
-                        <input type="text" id="fname" name="fname" value="First Name" recquired><br>
+                        <label for="firstname" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname">
                     </div>
                     <div class="col-3">
-                        <input type="text" id="mname" name="mname" value="Middle Name"><br>
+                        <label for="middlename" class="form-label">Middle Name:</label>
+                        <input type="text" class="form-control" id="middlename" placeholder="Middle Name" name="middlename">
                     </div>
                     <div class="col-3">
-                        <input type="text" id="lname" name="lname" value="Last Name" recquired><br>
+                        <label for="lastname" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname">
                     </div>
                     <div class="col-3">
+                        <label for="title" class="form-label">Title:</label>
                         <select class="form-select">
                             <option>Mr.</option>
                             <option>Mrs.</option>
@@ -71,24 +77,29 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="date" id="dob" name="dob" value="Date of Birth MM/DD/YYYY" recquired><br>
+                        <label for="dob" class="form-label">Date of Birth:</label>
+                        <input type="date" class="form-control" id="dob" name="dob">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
-                        <input type="email" id="email" name="email" value="Email Address" recquired><br>
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email" name="email">
                     </div>
                     <div class="col-6">
-                        <input type="email" id="reemail" name="reemail" value="Re-enter Email Address" recquired><br>
+                        <label for="remail" class="form-label">Re-Enter Email:</label>
+                        <input type="text" class="form-control" id="remail" placeholder="Re-Enter Email" name="remail">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" id="pphone" name="pphone" value="Phone Number xxx-xxx-xxxx" recquired><br>
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number" name="phone">
                     </div>
                     <div class="col-6">
+                        <label for="phonetype" class="form-label">Phone Type:</label>
                         <select class="form-select">
                             <option>Mobile</option>
                             <option>Home</option>
@@ -99,37 +110,37 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <input type="text" id="address1" name="address1" value="Address Line 1" recquired><br>
+                        <label for="address1" class="form-label">Address Line 1:</label>
+                        <input type="text" class="form-control" id="address1" placeholder="Address Line 1" name="address1">
+                    </div>
+
+
+                    <div class="col-4">
+                        <label for="address2" class="form-label">Address Line 2:</label>
+                        <input type="text" class="form-control" id="address2" placeholder="Address Line 2" name="address2">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <input type="text" id="address2" name="address2" value="Address Line 2" required><br>
+                        <label for="city" class="form-label">City:</label>
+                        <input type="text" class="form-control" id="city" placeholder="City" name="city">
+
+                    </div>
+                    <div class="col-4">
+                        <label for="state" class="form-label">State:</label>
+                        <input type="text" class="form-control" id="state" placeholder="State" name="state">
+
+                    </div>
+                    <div class="col-4">
+                        <label for="zip" class="form-label">Zip Code:</label>
+                        <input type="text" class="form-control" id="zip" placeholder="Zip Code" name="zip">
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <input type="text" id="city" name="city" value="City" recquired><br>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" id="state" name="state" value="State" required><br>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" id="zip" name="zip" value="Zip Code" required><br><br>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row" style="background-color: lightgrey;">
-                <form action="/action_page.php">
-                    <input type="submit" value="Submit">
-                </form>
                 <br>
-            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <br>
+            </form>
         </div>
 
         <div class="container-fluid">
