@@ -1,0 +1,149 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a, a:hover {
+  color: #000000;
+}
+
+ul {
+  list-style: none;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+figure {
+  margin-bottom: 30px;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+div > h1, .site-name {
+  font-size: 2.5rem;
+}
+
+nav > p {
+  cursor: pointer;
+}
+.pill-black, .pill-white {
+  border: 0.5px solid;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.pill-black {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+}
+
+/* Customizations of Bootstrap classes */
+
+header .row {
+  display: flex;
+  align-items: center;
+}
+
+.col-sm-4 p {
+  margin: 15px 20px 15px;
+  min-width: 60px;
+  padding: 1px;
+  justify-content:center;
+  align-items:top;
+}
+
+section.container .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbotron {
+  background-color: #6a0dad;
+  background-repeat:no-repeat;
+  display: flex;
+  align-items: center;
+  height: 250px;
+  background-image: url("Bank.svg");
+  background-size:contain;
+  background-position: center;
+}
+
+.jumbotron h2 {
+	display: inline-block;
+	color: #F06529;
+	font-weight: 700;
+	padding: 10px 35px;
+	border-radius: 5px;
+}
+
+.jumbotron h3 {
+  color: #F06529;
+  font-weight: bold;
+}
+
+
+.btn-primary {
+  color: #F06529;
+  background-color: #6a0dad;
+  border-color:#F06529;
+}
+
+.col-sm-1 img {
+  min-width: 32px;
+  min-height: 33px;
+}
+
+/* Bootstrap overrides */
+
+.navbar, .navbar-default {
+  margin: 0;
+  background-color: #FFFFFF;
+  border: none;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:active {
+  border: none;
+  background: #FFFFFF;
+}
+
+.dropdown-menu {
+  left: 22px;
+}
+
+/* Bootstrap Overrides : modal */
+
+.modal h3, .modal-body h4 {
+  text-align: center;
+}
+
+table{  
+  border-collapse: collapse;
+  width: 60%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:hover {
+  background-color: #D6EEEE;
+}
