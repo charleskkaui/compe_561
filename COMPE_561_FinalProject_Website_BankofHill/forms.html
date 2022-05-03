@@ -2,28 +2,11 @@
 
 <div class="container-fluid" style="background-color: lightgrey;">
     <form action="/action_page.php" class="was-validated">
-        <br>
+
+        <h1>Transfers</h1>
         <div class="row">
             <div class="col-3">
-                <label for="firstname" class="form-label">First Name:</label>
-                <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col-3">
-                <label for="middlename" class="form-label">Middle Name:</label>
-                <input type="text" class="form-control" id="middlename" placeholder="Middle Name" name="middlename" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col-3">
-                <label for="lastname" class="form-label">Last Name:</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col-3">
-                <label for="title" class="form-label">Title:</label>
+                <label for="title" class="form-label">From: </label>
                 <select class="form-select">
                     <option>--</option>
                     <option>Mr.</option>
@@ -31,89 +14,109 @@
                     <option>Ms.</option>
                 </select>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2">
-                <label for="dob" class="form-label">Date of Birth:</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
 
             <div class="col-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="text" class="form-control" id="email" placeholder="Email" name="email" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col-3">
-                <label for="remail" class="form-label">Re-Enter Email:</label>
-                <input type="text" class="form-control" id="remail" placeholder="Re-Enter Email" name="remail" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="col-2">
-                <label for="phone" class="form-label">Phone Number:</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Phone Number" name="phone" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="col-2">
-                <label for="phonetype" class="form-label">Phone Type:</label>
-                <select class="form-select" required>
-                    <option>Mobile</option>
-                    <option>Home</option>
-                    <option>Work</option>
+                <label for="title" class="form-label">To: </label>
+                <select class="form-select">
+                    <option>--</option>
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
                 </select>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
         </div>
+        <div class="row">
 
+            <div class="col-3">
+                <label for="transferamount" class="form-label">Amount: </label>
+                <input type="text" class="form-control" id="transferamount" placeholder="Amount" name="transferamount" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please entr an amount.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Pay</button>
+    </form>
+</div>
+
+<div class="container-fluid" style="background-color: lightgrey;">
+    <form action="/action_page.php" class="was-validated">
+        <h1>Credit Card Payment</h1>
         <div class="row">
             <div class="col-3">
-                <label for="address1" class="form-label">Address Line 1:</label>
-                <input type="text" class="form-control" id="address1" placeholder="Address Line 1" name="address1" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <label for="title" class="form-label">From: </label>
+                <select class="form-select">
+                    <option>--</option>
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                </select>
             </div>
 
             <div class="col-3">
-                <label for="address2" class="form-label">Address Line 2:</label>
-                <input type="text" class="form-control" id="address2" placeholder="Address Line 2" name="address2">
-            </div>
-
-            <div class="col-2">
-                <label for="city" class="form-label">City:</label>
-                <input type="text" class="form-control" id="city" placeholder="City" name="city" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-
-            </div>
-            <div class="col-2">
-                <label for="state" class="form-label">State:</label>
-                <input type="text" class="form-control" id="state" placeholder="State" name="state" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-
-            </div>
-            <div class="col-2">
-                <label for="zip" class="form-label">Zip Code:</label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip Code" name="zip" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <label for="title" class="form-label">To: </label>
+                <select class="form-select">
+                    <option>--</option>
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                </select>
             </div>
 
         </div>
+        <div class="row">
 
-        <br>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-        <br>
-
+            <div class="col-3">
+                <label for="transferamount" class="form-label">Amount: </label>
+                <input type="text" class="form-control" id="transferamount" placeholder="Amount" name="transferamount" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please entr an amount.</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Pay</button>
     </form>
+</div>
+
+<div class="container-fluid" style="background-color: lightgrey;">
+    <form action="/action_page.php" class="was-validated">
+        <h1>Credit Card Payment</h1>
+        <div class="row">
+            <div class="col-3">
+                <label for="title" class="form-label">From: </label>
+                <select class="form-select">
+                    <option>--</option>
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <h2>Amount in selected Acount</h2>
+            </div>
+
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <label for="title" class="form-label">To: </label>
+                    <select class="form-select">
+                        <option>--</option>
+                        <option>Mr.</option>
+                        <option>Mrs.</option>
+                        <option>Ms.</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-3">
+                    <label for="transferamount" class="form-label">Amount: </label>
+                    <input type="text" class="form-control" id="transferamount" placeholder="Amount" name="transferamount" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please entr an amount.</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Pay</button>
+</form>
 </div>
