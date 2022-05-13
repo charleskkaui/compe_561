@@ -24,7 +24,7 @@
 <br>
 
 <div class="container-fluid" style="background-color: lightgrey;;">
-    <form action="/register" class="was-validated" method = "post">
+    <form action="/register" class="was-validated" method="post">
         <br>
         <label>{{ msg }}</label>
         <div class="row">
@@ -96,7 +96,7 @@
             <div class="col-2">
                 <label for="city" class="form-label">City:</label>
                 <input type="text" class="form-control" id="city" placeholder="City" name="city" required>
-    
+
 
             </div>
             <div class="col-2">
@@ -108,13 +108,25 @@
             <div class="col-2">
                 <label for="zip" class="form-label">Zip Code:</label>
                 <input type="text" class="form-control" id="zip" placeholder="Zip Code" name="zip" required>
-                
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+            </div>
+
+            <div class="col-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="password" placeholder="Password" name="password" required>
             </div>
 
         </div>
 
         <br>
-        
+
         <div class="text-center">
             <button type="submit" class="btn btn-primary" style="text-align:center">Submit</button>
         </div>
