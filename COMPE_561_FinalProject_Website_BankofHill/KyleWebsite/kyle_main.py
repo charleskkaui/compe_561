@@ -18,6 +18,9 @@ userid = '1'
 
 @app.route("/")
 def home():
+    if "userid" in session:
+        user    = 1
+        return render_template("home.html",user=user)
     return render_template("home.html")
 
 @app.route("/login", methods=["GET","POST"])
@@ -82,11 +85,11 @@ def register():
 
     return render_template("Register.html", msg=msg)
 
-@app.route("/accounts")
+@app.route("/accounts",methods=["GET","POST"])
 def accounts():
     if "userid" in session:
-        user = 1
-        userid = str(session["userid"])
+        user    = 1
+        userid  = str(session["userid"])
         cur     = mysql.connection.cursor()
         
         query   = "SELECT account_id, amount FROM accounts WHERE Customer_ID = %s AND Type = 'Checking'"
@@ -113,10 +116,45 @@ def accounts():
     else:
         return redirect(url_for("login"))
 
-@app.route("/cards")
+@app.route("/cards",methods=["GET","POST"])
 def cards():
-    return render_template("Cards.html")
+    if request.method == 'POST':
+        if "userid" in session:
+            userid  = str(session["userid"])
+            user = 1
+            cur     = mysql.connection.cursor()
 
+            cur.execute("SELECT Credit_Score FROM customers WHERE Customer_ID = %s",(userid)) 
+            cr_score = cur.fetchall()
+
+            for row in cr_score:
+                if row != NULL:
+                    credit = row[0]
+            cardapr = 15
+            if  credit>=900:
+                apr = 0.5 * cardapr
+            elif credit<900:
+                apr = 0.6 * cardapr
+            elif credit < 800:
+                apr = 0.7 * cardapr
+            elif credit < 700:
+                apr = 0.8 * cardapr
+            else:
+                apr = 0.9 * cardapr
+            now     = datetime.now()
+            date    = now.strftime('%Y-%m-%d')
+            cur.execute("INSERT INTO accounts(Type, Customer_ID, Amount, Date_Created, APR) VALUES(%s, %s, %s, %s, %s)",('Credit',userid, '0',date, str(apr)))
+            mysql.connection.commit()
+            cur.close()
+            return redirect(url_for("accounts", user=user))
+        else:
+            return render_template("login.html")
+    else:
+        if "userid" in session:
+            user = 1
+            return render_template("Cards.html", user=user)
+        else:
+            return render_template("Cards.html")
 @app.route("/logout")
 def logout():
     session.pop("userid", None)

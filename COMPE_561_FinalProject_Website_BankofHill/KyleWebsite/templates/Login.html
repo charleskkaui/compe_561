@@ -13,6 +13,14 @@
 
 {% endblock %}
 
+{% block Sign %}
+  {%if user == 1%}
+    <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+  {%else%}
+    {{super()}}
+  {%endif%}
+{% endblock %}
+
 {% block body %}
 <!--Put all your body stuff here, not including navbar or footnotes-->
 <div class="container">
