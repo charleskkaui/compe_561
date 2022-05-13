@@ -151,6 +151,13 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #D6EEEE;
 }
+.nav-link{
+  color:#6a0dad;
+}
+.nav-link:hover{
+  text-decoration: underline;
+  color:#F06529
+}
 
 /* The Modal (background) */
 .modal {

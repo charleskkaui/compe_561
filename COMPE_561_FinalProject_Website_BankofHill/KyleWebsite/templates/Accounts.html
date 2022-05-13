@@ -4,6 +4,10 @@
 
 {% block head %}{% endblock %}
 
+{%block header%}
+    Accounts
+{%endblock%}
+
 {% block body %}
 
   <section class="container">
@@ -18,7 +22,11 @@
     <div class="tabcontent" id="main">
 
       <h1 style="text-align:center">Debit Balance</h1>
-      <h5 style="text-align:center">$2000</h5>
+      <h5 style="text-align:center">$
+        {% for row in debit %}
+          {{row[0]}}
+        {% endfor %}
+      </h5>
 
 
       <div class = "row text-center" id="startTransfer">
@@ -30,30 +38,17 @@
       <h1 style="text-align:center">Your Cards</h1>
       <table>
         <tr>
-          <th>Card ID</th>
-          <th>Card Type</th>
-          <th>Card Balance</th>
+          <td>
+            
+          </td>
         </tr>
-        <tr>
-          <td>0001</td>
-          <td>Business</td>
-          <td id="cc1_bal">$0</td>
-        </tr>
-        <tr>
-          <td>0002</td>
-          <td>Travel</td>
-          <td id="cc2_bal">$100</td>
-        </tr>
-        <tr>
-          <td>0003</td>
-          <td>Travel</td>
-          <td id="cc3_bal">$20</td>
-        </tr>
-        <tr>
-          <td>0004</td>
-          <td>Business</td>
-          <td id="cc4_bal">$1000</td>
-        </tr>
+        {% for row in credit %}
+          <tr>
+        {% for c in row %}
+            <td>{{ c }}</td>
+        {% endfor %}
+          </tr>
+        {% endfor %}
       </table>
       <br>
 
@@ -61,31 +56,13 @@
 
       <h1 style="text-align:center">Your Savings Accounts</h1>
       <table>
-        <tr>
-          <th>Card ID</th>
-          <th>Card Type</th>
-          <th>Card Balance</th>
-        </tr>
-        <tr>
-          <td>0001</td>
-          <td>Business</td>
-          <td>$0</td>
-        </tr>
-        <tr>
-          <td>0002</td>
-          <td>Travel</td>
-          <td>$100</td>
-        </tr>
-        <tr>
-          <td>0003</td>
-          <td>Travel</td>
-          <td>$20</td>
-        </tr>
-        <tr>
-          <td>0004</td>
-          <td>Business</td>
-          <td>$1000</td>
-        </tr>
+        {% for row in savings %}
+          <tr>
+        {% for s in row %}
+            <td>{{ s }}</td>
+        {% endfor %}
+          </tr>
+        {% endfor %}
       </table>
       <br>
 
@@ -98,31 +75,13 @@
       <h1 style="text-align:center">Transaction History</h1>
 
       <table>
-        <tr>
-          <th>Card ID</th>
-          <th>Card Type</th>
-          <th>Card Balance</th>
-        </tr>
-        <tr>
-          <td>0001</td>
-          <td>Business</td>
-          <td>$0</td>
-        </tr>
-        <tr>
-          <td>0002</td>
-          <td>Travel</td>
-          <td>$100</td>
-        </tr>
-        <tr>
-          <td>0003</td>
-          <td>Travel</td>
-          <td>$20</td>
-        </tr>
-        <tr>
-          <td>0004</td>
-          <td>Business</td>
-          <td>$1000</td>
-        </tr>
+        {% for row in hist %}
+          <tr>
+        {% for h in row %}
+            <td>{{ h }}</td>
+        {% endfor %}
+          </tr>
+        {% endfor %}
       </table>
       <br>
     </div>
