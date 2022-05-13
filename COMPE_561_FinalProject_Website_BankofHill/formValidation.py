@@ -14,7 +14,7 @@ class CertificateForm(FlaskForm):
     submit = SubmitField(validators=[DataRequired()])
 
 @app.route('/name',methods=['GET', 'POST'])
-def name():
+def certificateformroute():
     name = none
-    form = NamerForm()
+    form = CertificateForm()
     return render_template("Name.html")
