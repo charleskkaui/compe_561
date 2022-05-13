@@ -4,6 +4,10 @@
     Registration 
 {% endblock %}
 
+{%block header%}
+    Register
+{%endblock%}
+
 {% block head %}
 <!--Put any head things that are only used on this page here-->
 
@@ -19,9 +23,10 @@
 
 <br>
 
-<div class="container-fluid" style="background-color: lightgrey; width: 60%;">
-    <form action="/action_page.php" class="was-validated">
+<div class="container-fluid" style="background-color: lightgrey;;">
+    <form action="/register" class="was-validated" method = "post">
         <br>
+        <label>{{ msg }}</label>
         <div class="row">
             <div class="col-3">
                 <label for="firstname" class="form-label">First Name:</label>
@@ -110,9 +115,13 @@
 
         <br>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="text-align:center">Submit</button>
+        </div>
+
+        <div class="row text-center">
+            <a class="nav-link" href="{{ url_for('login') }}">Already Registered? Login Here!</a>
+        </div>
 
     </form>
 </div>
