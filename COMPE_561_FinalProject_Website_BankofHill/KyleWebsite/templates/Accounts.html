@@ -2,7 +2,50 @@
 
 {% block title %} Accounts{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  </style>
+{% endblock %}
 
 {%block header%}
     Accounts
@@ -20,9 +63,10 @@
 
 	<section class="container" >
     <div class="tabcontent" id="main">
-
-      <h1 style="text-align:center">Debit Balance</h1>
-      <h5 style="text-align:center">$
+      {% set id = 1%}
+      <h1 style="text-align:center" id="{{id}}" value="Debit">Debit Balance</h1>
+      {% set id = id+1%}
+      <h5 style="text-align:center"id="{{id}}" value="Debit">$
         {% for row in debit %}
           {{row[0]}}
         {% endfor %}
@@ -30,7 +74,92 @@
 
 
       <div class = "row text-center" id="startTransfer">
-        <button class="btn btn-primary" id="btnTransfer">Make Transfer</button>
+        <button class="btn btn-primary" id="myBtn">Make Transfer</button>
+      </div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" style="text-align:right;">&times;</span>
+          <section class="container" id="payment">
+            <form style="text-align: center">
+              <!--The Paying Account-->
+              <div class="row">
+                <figure class="col-sm-4">
+                  <label for="payAccount">Account</label>
+                </figure>
+                <figure class="col-sm-4">
+                  <label for="balance">Balance</label>
+                </figure>
+              </div>
+              <div class="row">
+                <figure class="col-sm-4">
+                  <select class="payAccount" name="payAccount">
+                    <option value="cc1_bal">Checking</option>
+                    <option value="cc2_bal">Save A</option>
+                    <option value="cc4_bal">Save B</option>
+                  </select>
+                </figure>
+                <figure class="col-sm-4">
+                  <input style="text-align: right" type="text" id="balance" name="balance"  value="$0" disabled="disabled">
+                </figure>
+              </div>
+              <!--The Credit Account-->
+              <div class="row">
+                <figure class="col-sm-4">
+                  <label for="payCredit">Credit Card ID</label>
+                </figure>
+                <figure class="col-sm-4">
+                  <label for="debt">Debt</label>
+                </figure>
+              </div>
+              <div class="row">
+                <figure class="col-sm-4">
+                  <select id="payCredit" name="payCredit">
+                    <option value="creditId">0001</option>
+                    <option value="creditId">0002</option>
+                    <option value="creditId">0003</option>
+                  </select>
+                </figure>
+                <figure class="col-sm-4">
+                  <input style="text-align: right" type="text" id="debt" name="debt" value="$2000" disabled="disabled">
+                </figure>
+              </div>
+              <!--The Resulting Balance-->
+              <div class="row">
+                <figure class="col-sm-4">
+                  <label for="payAmount">Transfer Amount</label>
+                </figure>
+                <figure class="col-sm-4">
+                  <label for="resultDebt">Destination Balance</label>
+                </figure>
+                <figure class="col-sm-4">
+                  <label for="resultBal">Source Balance</label>
+                </figure>
+              </div>
+              <div class="row">
+                <figure class="col-sm-4">
+                  <input style="text-align: right" type="text" id="payAmount" name="payAmount" value="$2000" disabled="disabled">
+                </figure>
+                <figure class="col-sm-4">
+                  <input style="text-align: right" type="text" id="resultDebt" name="resultDebt" value="$0" disabled="disabled">
+                </figure>
+                <figure class="col-sm-4">
+                  <input style="text-align: right" type="text" id="resultBal" name="resultBal" value="$0" disabled="disabled">
+                </figure>
+              </div>
+              <div class="row">
+                <figure class="col-sm-4">
+                  <button class="btn btn-primary" id="btnDismissPay">Dismiss</button>
+                </figure>
+                <figure class="col-sm-4">
+                  <input class="btn btn-primary" id ="btnConfirmPay" type="submit" value="Confirm">
+                </figure>
+              </div>
+            </form>
+        </section>
+        </div>
       </div>
       
       <hr>
@@ -44,8 +173,13 @@
         </tr>
         {% for row in credit %}
           <tr>
-        {% for c in row %}
+        {% for (i, c) in enumerate(row) %}
+            {%if (i == 0) or (i == 3)%}
+              {% set id = id+1%}
+              <td id="id" value="credit">{{ c }}</td>
+            {%elif i != 2%}
             <td>{{ c }}</td>
+            {%endif%}
         {% endfor %}
           </tr>
         {% endfor %}
@@ -58,8 +192,13 @@
       <table>
         {% for row in savings %}
           <tr>
-        {% for s in row %}
-            <td>{{ s }}</td>
+        {% for (i, c) in enumerate(row) %}
+          {%if (i == 0) or (i == 3)%}
+            {% set id = id+1%}
+            <td id="id" value="savings">{{ c }}</td>
+          {%elif i != 2%}
+            <td>{{ c }}</td>
+          {%endif%}
         {% endfor %}
           </tr>
         {% endfor %}
@@ -89,5 +228,33 @@
 
   <!--External JavaScript-->
   <script type="text/javascript" src="{{ url_for('static', filename='kyle_main.js') }}"></script>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
 
 {% endblock %}

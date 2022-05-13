@@ -38,7 +38,10 @@ def login():
             cur.close() 
             return redirect(url_for("accounts"))       
         cur.close()
-    return render_template("Login.html")
+    else:
+        if "userid" in session:
+            return redirect(url_for('accounts'))
+        return render_template("Login.html")
 
 @app.route("/register", methods=["GET","POST"])
 def register():
