@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\COMPE_561_FinalProject_Website_BankofHill",
+    "\\COMPE_561_FinalProject_Website_BankofHill\\KyleWebsite",
     "\\COMPE_561_FinalProject_Website_BankofHill\\KyleWebsite\\static",
     "\\COMPE_561_FinalProject_Website_BankofHill\\KyleWebsite\\templates"
   ],
-  "SelectedNode": "\\COMPE_561_FinalProject_Website_BankofHill\\base.html",
+  "SelectedNode": "\\COMPE_561_FinalProject_Website_BankofHill\\KyleWebsite\\templates\\Home.html",
   "PreviewInSolutionExplorer": false
 }
