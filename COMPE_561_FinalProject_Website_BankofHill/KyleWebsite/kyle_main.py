@@ -155,6 +155,7 @@ def cards():
             return render_template("Cards.html", user=user)
         else:
             return render_template("Cards.html")
+
 @app.route("/logout")
 def logout():
     session.pop("userid", None)
