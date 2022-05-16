@@ -41,7 +41,6 @@ CREATE TABLE `bankofhill`.`accounts` (
 
 CREATE TABLE `bankofhill`.`transactions` ( 
     `Transac_ID` INT NOT NULL AUTO_INCREMENT, 
-    `Type` INT NOT NULL , 
     `Account_A` INT NOT NULL , 
     `Account_B` INT NOT NULL , 
     `Amount` decimal(50,2) NOT NULL , 

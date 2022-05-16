@@ -3,6 +3,55 @@ INSERT INTO `bankofhill`.`customers` VALUES  (DEFAULT, 'Ruthe','Frieda','Cressid
 INSERT INTO `bankofhill`.`customers` VALUES  (DEFAULT, 'Joane','Flory','Willie','WillieJoane81@yahoo.com','4473859995','312 Blue Royalty Lane','','Chaguanas','Arkansas',60651,'06-23-16',626);
 INSERT INTO `bankofhill`.`customers` VALUES  (DEFAULT, 'Elmira','Lanae','Xerxes','XerxesElmira72@gmail.com','7242253073','754 Orange Prospect Way','','Quebec City','Alaska',82373,'03-08-18',505);
 
-INSERT INTO `bankofhill`.`accounts` VALUES(DEFAULT,'Checking',1,20000.00,'2008-7-04');
+INSERT INTO `accounts` VALUES (DEFAULT,'Checking',1,15000,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Checking',2,300,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Checking',3,26584,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Checking',4,654684,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Savings',1,68546351,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Savings',2,65876854,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Savings',3,4684,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Savings',4,68464,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Credit',1,684687,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Credit',2,6584,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Credit',3,178785,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Credit',4,7582,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Certificate',1,875,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Certificate',2,7852,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Certificate',3,7865,'05-13-2022',null,null,null);
+INSERT INTO `accounts` VALUES (DEFAULT,'Certificate',4,7852,'05-13-2022',null,null,null);
 
-INSERT INTO `bankofhill`.`users` VALUES(DEFAULT, 'a', 'a')
+INSERT INTO `users` VALUES (1,'usr1','ps1');
+INSERT INTO `users` VALUES (2,'usr2','ps2');
+INSERT INTO `users` VALUES (3,'usr3','ps3');
+INSERT INTO `users` VALUES (4,'usr4','ps4');
+
+INSERT INTO `transactions` VALUES (DEFAULT,12,250,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,23,134,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,24,625,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,42,223,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,32,12,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,21,24,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,18,36,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,26,85,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,42,164,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,37,136,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,112,652,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,211,243,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,310,1,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,49,36,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,58,254,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,67,135,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,76,336,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,85,252,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,112,325,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,211,132,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,310,245,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,49,222,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,58,3,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,67,36,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,710,35,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,89,49,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,58,85,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,34,61,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,63,52,'05-13-2022');
+INSERT INTO `transactions` VALUES (DEFAULT,22,72,'05-13-2022');
