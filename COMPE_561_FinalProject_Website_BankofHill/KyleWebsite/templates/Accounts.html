@@ -90,79 +90,40 @@
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close" style="text-align:right;">&times;</span>
-          <section class="container" id="payment">
-            <form style="text-align: center">
-              <!--The Paying Account-->
-              <div class="row">
-                <figure class="col-sm-4">
-                  <label for="payAccount">Account</label>
-                </figure>
-                <figure class="col-sm-4">
-                  <label for="balance">Balance</label>
-                </figure>
-              </div>
-              <div class="row">
-                <figure class="col-sm-4">
-                  <select class="payAccount" name="payAccount">
-                    {%for row in source%}
-                      <option value="{{row[1]}}">{{row[0]}}</option>
-                    {%endfor%}
-                  </select>
-                </figure>
-                <figure class="col-sm-4">
-                  <input style="text-align: right" type="text" id="balance" name="balance"  value="$0" disabled="disabled">
-                </figure>
-              </div>
-              <!--The Destination Account-->
-              <div class="row">
-                <figure class="col-sm-4">
-                  <label for="payCredit">Credit Card ID</label>
-                </figure>
-                <figure class="col-sm-4">
-                  <label for="debt">Debt</label>
-                </figure>
-              </div>
-              <div class="row">
-                <figure class="col-sm-4">
-                  <input type="text" class="form-control" id="dest" placeholder="Destination Account" name="dest" required>
-                </figure>
-                <figure class="col-sm-4">
-                  <input style="text-align: right" type="text" id="debt" name="debt" value="$2000" disabled="disabled">
-                </figure>
-              </div>
-              <!--The Resulting Balance-->
-              <div class="row">
-                <figure class="col-sm-4">
-                  <label for="payAmount">Transfer Amount</label>
-                </figure>
-                <figure class="col-sm-4">
-                  <label for="resultDebt">Destination Balance</label>
-                </figure>
-                <figure class="col-sm-4">
-                  <label for="resultBal">Source Balance</label>
-                </figure>
-              </div>
-              <div class="row">
-                <figure class="col-sm-4">
-                  <input style="text-align: right" type="text" id="payAmount" name="payAmount" value="$2000" disabled="disabled">
-                </figure>
-                <figure class="col-sm-4">
-                  <input style="text-align: right" type="text" id="resultDebt" name="resultDebt" value="$0" disabled="disabled">
-                </figure>
-                <figure class="col-sm-4">
-                  <input style="text-align: right" type="text" id="resultBal" name="resultBal" value="$0" disabled="disabled">
-                </figure>
-              </div>
-              <div class="row">
-                <figure class="col-sm-4">
-                  <button class="btn btn-primary" id="btnDismissPay">Dismiss</button>
-                </figure>
-                <figure class="col-sm-4">
-                  <input class="btn btn-primary" id ="btnConfirmPay" type="submit" value="Confirm">
-                </figure>
-              </div>
+
+          <section class="container" style="background-color: lightgrey;">
+            <form method="POST">
+                <h1>Transfers</h1>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="title" class="form-label">From: </label>
+                        <select class="form-select" style="text-align: center;" id="AccA" name="AccA">
+                          {%for row in source%}
+                            <option>Saving & Checking {{row[0]}} : {{row[1]}} </option>
+                          {%endfor%}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="title" class="form-label">To: </label>
+                        <select class="form-select" style="text-align: center;" id="AccB" name="AccB">
+                          {%for row in source%}
+                            <option>Saving & Checking {{row[0]}} : {{row[1]}} </option>
+                          {%endfor%}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="transferamount" class="form-label">Amount: </label>
+                        <input type="text" class="form-control" id="transferamount" placeholder="Amount" name="transferamount" required>
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Pay</button>
             </form>
-        </section>
+          </section>
         </div>
       </div>
       
@@ -171,15 +132,17 @@
       <h1 style="text-align:center">Your Cards</h1>
       <table>
         <tr>
-          <td>
-            
-          </td>
+          <td>Account ID</td>
+          <td>Debt</td>
+          <td>APR</td>
+          <td>Date-Created</td>
         </tr>
         {% for row in credit %}
           <tr>
-        {% for c in row %}
-          <td>{{ c }}</td>
-        {% endfor %}
+            <td>{{row[0]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[5]}}</td>
+            <td>{{row[4]}}</td>
           </tr>
         {% endfor %}
       </table>
@@ -189,11 +152,16 @@
 
       <h1 style="text-align:center">Your Savings Accounts</h1>
       <table>
+        <tr>
+          <td>Account ID</td>
+          <td>Amount</td>
+          <td>Date-Created</td>
+        </tr>
         {% for row in savings %}
           <tr>
-        {% for s in row %}
-            <td>{{ s }}</td>
-        {% endfor %}
+            <td>{{row[0]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[5]}}</td>
           </tr>
         {% endfor %}
       </table>
@@ -208,13 +176,18 @@
       <h1 style="text-align:center">Transaction History</h1>
 
       <table>
+        <tr>
+          <td> Source Account</td>
+          <td> Destination Account</td>
+          <td> Amount</td>
+          <td> Date</td>
+        </tr>
         {% for row in hist %}
           <tr>
-        {% for h in row %}
-        {% if h != 0 %}
-            <td>{{ h }}</td>
-        {% endif %}
-        {% endfor %}
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
           </tr>
         {% endfor %}
       </table>

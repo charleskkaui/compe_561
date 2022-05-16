@@ -69,8 +69,8 @@ def register():
         date    = now.strftime('%Y-%m-%d')
 
         cur     = mysql.connection.cursor()
-        resultU = cur.execute("SELECT username, password FROM users WHERE username = %s",(uname))
-        resultP = cur.execute("SELECT username, password FROM users WHERE password = %s",(pswd))
+        resultU = cur.execute("SELECT username, password FROM users WHERE username = %s",[uname])
+        resultP = cur.execute("SELECT username, password FROM users WHERE password = %s",[pswd])
         if resultU>0:
             msg='Username already exists'
         elif resultP>0:
@@ -87,34 +87,85 @@ def register():
 
 @app.route("/accounts",methods=["GET","POST"])
 def accounts():
-    if "userid" in session:
-        user    = 1
-        userid  = str(session["userid"])
-        cur     = mysql.connection.cursor()
-        
-        query   = "SELECT account_id, amount FROM accounts WHERE Customer_ID = %s AND Type = 'Checking'"
-        cur.execute(query,(userid,))
-        debit = cur.fetchall()
+    if request.method == 'POST':
+        if "userid" in session:
+            user    = 1
+            userid  = str(session["userid"])
+            cur     = mysql.connection.cursor()
+            
+            query   = "SELECT account_id, amount FROM accounts WHERE Customer_ID = %s AND Type = 'Checking'"
+            cur.execute(query,(userid,))
+            debit = cur.fetchall()
 
-        query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Credit'"
-        cur.execute(query,(userid,))
-        credit = cur.fetchall()
+            query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Credit'"
+            cur.execute(query,(userid,))
+            credit = cur.fetchall()
 
-        query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Savings'"
-        cur.execute(query,(userid))
-        savings = cur.fetchall()
+            query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Savings'"
+            cur.execute(query,(userid))
+            savings = cur.fetchall()
 
-        cur.execute("SELECT * FROM transactions WHERE Account_A = %s OR Account_B = %s",(userid,userid,))
-        hist    = cur.fetchall()
+            cur.execute("SELECT * FROM transactions WHERE Account_A = %s OR Account_B = %s",(userid,userid,))
+            hist    = cur.fetchall()
 
-        cur.execute("SELECT account_id, amount FROM accounts WHERE (Type = 'Savings' OR Type = 'Checking') AND Customer_ID = %s",(userid,))
-        source = cur.fetchall()
+            cur.execute("SELECT account_id, amount FROM accounts WHERE (Type = 'Savings' OR Type = 'Checking') AND Customer_ID = %s",(userid,))
+            source = cur.fetchall()
 
-        cur.close()
+            fdata   = request.form
+            AccA    = fdata['AccA']
+            AccB    = fdata['AccB']
+            Amount  = fdata['transferamount']
+            now     = datetime.now()
+            date    = now.strftime('%Y-%m-%d')
 
-        return render_template("Accounts.html",debit=debit,credit=credit,savings=savings,hist=hist, source=source, user=user)
+            x = AccA[18]
+            y = AccA[19]
+            A = str(x)
+            if y != ' ':
+                A = str(x) + str(y)
+            x = AccB[18]
+            y = AccB[19]
+            B = str(x)
+            if y != ' ':
+                B =str(x) + str(y)
+
+            cur.execute("INSERT INTO transactions(Account_A, Account_B, Amount, Transac_Date) VALUES(%s, %s, %s, %s)",(A, B, Amount,date))
+            mysql.connection.commit()
+
+            cur.close()
+
+            return render_template("Accounts.html",debit=debit,credit=credit,savings=savings,hist=hist, source=source, user=user)
+        else:
+            return redirect(url_for("login"))
     else:
-        return redirect(url_for("login"))
+        if "userid" in session:
+            user    = 1
+            userid  = str(session["userid"])
+            cur     = mysql.connection.cursor()
+            
+            query   = "SELECT account_id, amount FROM accounts WHERE Customer_ID = %s AND Type = 'Checking'"
+            cur.execute(query,(userid,))
+            debit = cur.fetchall()
+
+            query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Credit'"
+            cur.execute(query,(userid,))
+            credit = cur.fetchall()
+
+            query   = "SELECT * FROM accounts WHERE Customer_ID = %s AND Type = 'Savings'"
+            cur.execute(query,(userid))
+            savings = cur.fetchall()
+
+            cur.execute("SELECT * FROM transactions WHERE Account_A = %s OR Account_B = %s",(userid,userid,))
+            hist    = cur.fetchall()
+
+            cur.execute("SELECT account_id, amount FROM accounts WHERE (Type = 'Savings' OR Type = 'Checking') AND Customer_ID = %s",(userid,))
+            source = cur.fetchall()
+
+            cur.close()
+
+            return render_template("Accounts.html",debit=debit,credit=credit,savings=savings,hist=hist, source=source, user=user)
+        else:
+            return redirect(url_for("login"))
 
 @app.route("/cards",methods=["GET","POST"])
 def cards():
@@ -124,7 +175,7 @@ def cards():
             user = 1
             cur     = mysql.connection.cursor()
 
-            cur.execute("SELECT Credit_Score FROM customers WHERE Customer_ID = %s",(userid)) 
+            cur.execute("SELECT Credit_Score FROM customers WHERE Customer_ID = %s",[userid]) 
             cr_score = cur.fetchall()
 
             for row in cr_score:
