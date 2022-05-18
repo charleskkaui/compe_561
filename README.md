@@ -1,6 +1,8 @@
 # compe_561
 Windows Database and Web Programming
 
+Bank of Hill is an online banking website that offers its members the freedom to manage their personal bank accounts online. The website designates a checking and a savings account to each new user upon registration. The website allows the user to transfer funds between their accounts. It also hosts a credit card promotional page where users are given the opportunity to apply for a credit card. Upon the submission for a credit card.
+
 Alternatively, Steps 3-9 can be repeated using a default user with credentials:  usr1:ps1
 1.	Create a mysql database by running the query in the git called MySQL_All.sql
 
