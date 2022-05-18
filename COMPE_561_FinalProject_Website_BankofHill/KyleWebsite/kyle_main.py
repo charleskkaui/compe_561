@@ -127,9 +127,25 @@ def accounts():
             y = AccB[19]
             B = str(x)
             if y != ' ':
-                B =str(x) + str(y)
+                B = str(x) + str(y)
+            
+            for row in source:
+                if str(row[0]) == A:
+                    NewA = float(row[1])
+                elif str(row[0]) == B:
+                    NewB = float(row[1])
 
             cur.execute("INSERT INTO transactions(Account_A, Account_B, Amount, Transac_Date) VALUES(%s, %s, %s, %s)",(A, B, Amount,date))
+            mysql.connection.commit()
+
+            NewA -= float(Amount)
+            NewA = "{:.2f}".format(NewA)
+            cur.execute("UPDATE accounts SET Amount = %s WHERE accounts.Account_ID = %s",(NewA, A))
+            mysql.connection.commit()
+
+            NewB += float(Amount)
+            NewB = "{:.2f}".format(NewB)
+            cur.execute("UPDATE accounts SET Amount = %s WHERE accounts.Account_ID = %s",(NewB, B))
             mysql.connection.commit()
 
             cur.close()
