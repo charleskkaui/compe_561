@@ -1,0 +1,104 @@
+{% extends "skeleton.html" %}
+<!--Put your page Title Here-->
+{% block title %}
+    Home
+{% endblock %}
+
+{%block header%}
+    Home
+{%endblock%}
+
+{% block head %}
+<!--Put any head things that are only used on this page here-->
+{% endblock %}
+
+{% block Sign %}
+  {%if user == 1%}
+    <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+  {%else%}
+    {{super()}}
+  {%endif%}
+{% endblock %}
+
+{% block body %}
+<!--Put all your body stuff here, not including navbar or footnotes-->
+<div class="container-fluid">
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-mdb-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Best Bank in the Hills</h5>
+                    <p>At Hills Bank it's our mission to Bank in the Hills.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Best Bank in the Hills</h5>
+                    <p>At Hills Bank it's our mission to Bank in the Hills.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Best Bank in the Hills</h5>
+                    <p>At Hills Bank it's our mission to Bank in the Hills.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="lightbox">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="https://pikwizard.com/photos/c3553cabf812a35c1c4de368736ae164-l.jpg"
+                     data-mdb-img="https://pikwizard.com/photos/c3553cabf812a35c1c4de368736ae164-l.jpg"
+                     alt="Table Full of Spices"
+                     class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0">Best APY on Certifcates of Deposit</p>
+                    </div>
+                </div>
+                <img src="https://www.expectmorearizona.org/wp-content/uploads/2016/01/Group-of-Happy-Teenagers-Holding-Diploma-in-High-School-Graduation-182153181_5616x3744.jpeg"
+                     data-mdb-img="https://www.expectmorearizona.org/wp-content/uploads/2016/01/Group-of-Happy-Teenagers-Holding-Diploma-in-High-School-Graduation-182153181_5616x3744.jpeg"
+                     alt="Coconut with Strawberries"
+                     class="w-100 shadow-1-strong rounded" />
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0">Lowest APR on Student Loans for COVID Scholars</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <img src="http://www.smcyinternationalfamily.org/wp-content/uploads/2018/01/Happy-People1-1.jpg"
+                     data-mdb-img="http://www.smcyinternationalfamily.org/wp-content/uploads/2018/01/Happy-People1-1.jpg"
+                     alt="Dark Roast Iced Coffee"
+                     class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0">Join the #1 Bank in the Hills</p>
+                    </div>
+                </div>
+                <img src="https://www.motorbiscuit.com/wp-content/uploads/2020/11/2020-Honda-Civic-Si-sedan.jpg"
+                     data-mdb-img="https://www.motorbiscuit.com/wp-content/uploads/2020/11/2020-Honda-Civic-Si-sedan.jpg"
+                     alt="Dark Roast Iced Coffee"
+                     class="w-100 shadow-1-strong rounded" />
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0">Best Auto Loans in the Country</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}
